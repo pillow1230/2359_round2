@@ -46,6 +46,14 @@ public class BirdTest extends TestCase {
 		outContent.reset();
 		chicken.action("swim", duck);
 		assertEquals("i am swimming\n",outContent.toString());
+		
+		outContent.reset();
+		chicken.say();
+		assertEquals("Cluck, cluck\n",outContent.toString());
+		
+		outContent.reset();
+		duck.say();
+		assertEquals("Quack, quack\n",outContent.toString());
 	}
 	
 	@Test(expected = NullPointerException.class)

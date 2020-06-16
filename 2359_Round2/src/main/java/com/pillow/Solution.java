@@ -10,9 +10,12 @@ public class Solution {
 //		Duck duck2 = new Duck();
 //		System.out.println(bird instanceof Duck);
 		Chicken c = new Chicken();
-		c.action(null, c);
+		c.action("fly", c);
 		Duck d = new Duck();
 		d.action("swim", d);
+		
+		d.say();
+		c.say();
 	}
 
 }

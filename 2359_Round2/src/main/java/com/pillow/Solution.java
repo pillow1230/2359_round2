@@ -12,10 +12,20 @@ public class Solution {
 		c.say();
 		
 		ChickenFactory cf = new ChickenFactory();
-		Chicken chick = cf.getInstance("male");
-		chick.say();
-		Chicken chick2 = cf.getInstance("other");
-		chick2.say();
+		Chicken rooster = cf.getInstance("male");
+		rooster.say();
+		Chicken normalChick = cf.getInstance("other");
+		normalChick.say();
+		
+		Parrot p = new ParrotAdapter(rooster);
+		p.say();
+		Dog dog = new Dog();
+		p = new ParrotAdapter(dog);
+		p.say();
+		Cat cat = new Cat();
+		p = new ParrotAdapter(cat);
+		p.say();
+		
 	}
 
 }

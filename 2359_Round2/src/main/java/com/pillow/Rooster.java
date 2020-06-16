@@ -2,7 +2,7 @@ package com.pillow;
 
 public class Rooster extends Chicken {
 	
-	void say() {
+	public void say() {
 		System.out.println("Cock-a-doodle-doo");
 	}
 }

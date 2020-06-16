@@ -13,6 +13,4 @@ public abstract class Bird implements Animal {
 			System.out.println("i am walking");
 	}
 	
-	abstract void say();
-
 }

@@ -1,8 +1,6 @@
 package com.pillow;
 
-public class Animal {
+public interface Animal {
 	
-	void walk() {
-	 System.out.println("i am walking");
-	}
+	void action(String action);
 }

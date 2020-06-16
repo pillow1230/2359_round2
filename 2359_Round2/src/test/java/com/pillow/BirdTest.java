@@ -1,6 +1,7 @@
 package com.pillow;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 
 import org.junit.Before;
@@ -21,8 +22,16 @@ public class BirdTest extends TestCase {
 	
 	@Test
 	public void testSing() {
-		bird.sing();
+		bird.action("sing");
 		assertEquals("i am singing\n",outContent.toString());
+		
+		outContent.reset();
+		bird.action("fly");
+		assertEquals("i am flying\n",outContent.toString());
+		
+		outContent.reset();
+		bird.action("asd");
+		assertEquals("i am walking\n",outContent.toString());
 	}
 	
 }

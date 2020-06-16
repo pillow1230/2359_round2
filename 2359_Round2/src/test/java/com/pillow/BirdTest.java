@@ -11,27 +11,47 @@ import junit.framework.TestCase;
 
 public class BirdTest extends TestCase {
 	
-	private Bird bird;
+	private Chicken chicken;
+	private Duck duck;
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	
 	@Before
 	public void setUp(){
-		bird = new Bird();
+		chicken = new Chicken();
+		duck = new Duck();
 		System.setOut(new PrintStream(outContent));
 	}
 	
 	@Test
 	public void testSing() {
-		bird.action("sing");
+		chicken.action("sing", chicken);
 		assertEquals("i am singing\n",outContent.toString());
 		
 		outContent.reset();
-		bird.action("fly");
-		assertEquals("i am flying\n",outContent.toString());
+		chicken.action("fly", chicken);
+		assertEquals("i am walking\n",outContent.toString());
 		
 		outContent.reset();
-		bird.action("asd");
+		chicken.action("asd",chicken);
 		assertEquals("i am walking\n",outContent.toString());
+		
+		outContent.reset();
+		chicken.action("walking", chicken);
+		assertEquals("i am walking\n",outContent.toString());
+		
+		outContent.reset();
+		chicken.action("", chicken);
+		assertEquals("i am walking\n",outContent.toString());
+		
+		outContent.reset();
+		chicken.action("swim", duck);
+		assertEquals("i am swimming\n",outContent.toString());
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public void whenExceptionThrown_thenExpectationSatisfied() {
+		outContent.reset();
+		chicken.action(null, chicken);
 	}
 	
 }

@@ -2,5 +2,5 @@ package com.pillow;
 
 public interface Animal {
 	
-	void action(String action);
+	void action(String action, Bird bird);
 }
